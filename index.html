@@ -3,54 +3,93 @@
 <head>
     <title>B & T</title>
     <style>
-                /* Styling for the navigation bar */
-               .navbar {
-            overflow: hidden;
-            background-color: #333;
+        /* Existing styles */
+        .navbar {
+            /* ... your existing navbar styles ... */
+        }
+        /* ... other styles ... */
+
+        /* Styles for PIN pad */
+        #pinLock {
+            position: fixed; /* Overlay */
             width: 100%;
-            position: center; /* Fixed position at the top */
+            height: 100%;
             top: 0;
             left: 0;
-            z-index: 1000; /* Ensure navbar stays on top of other content */
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+            z-index: 2; /* Above other elements */
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .navbar a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
+        .pin-container {
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
             text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
         }
 
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+        .pin-container input {
+            text-align: center;
+            margin-bottom: 10px;
         }
-        
-        .Feb {
-            float: left;
+
+        .numpad button {
+            padding: 10px;
+            margin: 5px;
         }
     </style>
 </head>
 <body>
-<div id="content">
-  <div class="navbar">
-      <a href="playlist.html">Our Playlist</a>
-      <a href="index.html">Home</a>
-      <a href="us.html">Us</a>
-      <a href="feb14.html">Feb 14</a>
-      <a href="dec14.html">Dec 14</a>
-  </div>
+<div id="pinLock">
+    <div class="pin-container">
+        <h2>Enter PIN to Access</h2>
+        <input type="password" id="pinInput" readonly>
+        <div class="numpad">
+            <button onclick="enterPin('1')">1</button>
+            <button onclick="enterPin('2')">2</button>
+            <!-- Add other buttons in similar fashion -->
+            <button onclick="enterPin('0')">0</button>
+            <button onclick="clearPin()">Clear</button>
+            <button onclick="checkPIN()">Enter</button>
+        </div>
+    </div>
+</div>
+
+<div id="content" style="display:none;">
+    <div class="navbar">
+        <!-- Your existing navbar links -->
+    </div>
     <h2>Pin Correct! Content Unlocked!</h2>
+    <!-- Other content goes here -->
 </div>
 
 <script>
-    // JavaScript code will go here
+    function enterPin(value) {
+        document.getElementById("pinInput").value += value;
+    }
+
+    function clearPin() {
+        document.getElementById("pinInput").value = '';
+    }
+
+    function checkPIN() {
+        var correctPIN = "1412"; // Set your desired PIN here
+        var enteredPIN = document.getElementById("pinInput").value;
+
+        if(enteredPIN === correctPIN) {
+            document.getElementById("pinLock").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        } else {
+            alert("Incorrect PIN. Please try again.");
+            clearPin(); // Clear the input field
+        }
+    }
 </script>
 
 </body>
 </html>
-
-
-
