@@ -1,11 +1,12 @@
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body{
     margin: 0;
-    background-color: #f0f0f0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0b1522;
 }
 
 /* Numpad Styling */
@@ -84,6 +85,73 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+.hidden { display: none; }
+.content { margin-top: 20px; }
+
+#question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  width: 200px;
+  height: 100px
+}
+
+
+#prompt {
+
+    width: 200px;
+  height: 100px
+  margin-top: 200px;
+  margin-left: 20px
+      
+
+
+}
+
+.heart{
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 90px #f20044;
+    animation: heart 2s ease-in-out infinite;
+        
+}
+
+.heart:before{
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    top: -50%;
+    border-radius: 50px;
+    box-shadow: -10px -10px 90px #f20044;
+}
+
+@keyframes heart{
+    0%{
+        transform: rotate(-45deg) scale(0.75);
+    }
+}
+
+.heart:after{
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 90px;
+    background: #f20044;
+    right: -50%;
+    border-radius: 50px;
+    box-shadow: 10px 10px 90px #f20044;    
+}
     height: 100vh; 
 }
 
