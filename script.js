@@ -28,3 +28,15 @@ function checkPIN() {
         clearPin(); // Clear the input field
     }
 }
+
+// JavaScript to add functionality to buttons
+document.getElementById('yesBtn').addEventListener('click', function() {
+  document.getElementById('content').style.display = 'block'; // Show the content
+  document.getElementById('prompt').style.display = 'none';   // Hide the prompt
+});
+
+document.getElementById('noBtn').addEventListener('click', function() {
+  alert('Sorry i think you pressed this button by mistake try again'); // Show a message
+});
+
+
