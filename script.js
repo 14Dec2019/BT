@@ -31,7 +31,7 @@ function checkPIN() {
 
 // JavaScript to add functionality to buttons
 document.getElementById('yesBtn').addEventListener('click', function() {
-  document.getElementById('heart').style.display = 'block'; // Show the content
+  document.getElementById('hidden2').style.display = 'block'; // Show the content
   document.getElementById('prompt').style.display = 'none';   // Hide the prompt
 });
 
